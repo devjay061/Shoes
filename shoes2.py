@@ -95,7 +95,7 @@ else:
         st.image(sneaker['url'], use_column_width=True)
 
 with tab2:
-    st.title("Get to Know your shoes")
+    st.markdown("""<h1 style="font-family: Agency FB; font-size:50px; text-align:center">Get to Know your shoes</h1>""",unsafe_allow_html=True)
     @st.cache_resource
     def load_model():
         mod=YOLO("best1.pt")
