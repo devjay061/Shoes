@@ -83,16 +83,16 @@ with tab1:
     
    
 
-else:
-    precition=st.session_state.page
-    brand = st.session_state.page
-    if st.button("Home",type="primary", on_click=switch_page, args=('Home',)):
-         pass
-
-    st.header(f"{brand} Sneakers")
-    for sneaker in shoes[brand]:
-        st.markdown(sneaker['name'])
-        st.image(sneaker['url'], use_column_width=True)
+    else:
+        precition=st.session_state.page
+        brand = st.session_state.page
+        if st.button("Home",type="primary", on_click=switch_page, args=('Home',)):
+             pass
+    
+        st.header(f"{brand} Sneakers")
+        for sneaker in shoes[brand]:
+            st.markdown(sneaker['name'])
+            st.image(sneaker['url'], use_column_width=True)
 
 with tab2:
     st.markdown("""<h1 style="font-family: Agency FB; font-size:40px; text-align:center">Get to Know your shoes</h1>""",unsafe_allow_html=True)
