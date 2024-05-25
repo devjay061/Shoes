@@ -107,8 +107,7 @@ with tab2:
         mod1=load_model()
         res=mod1.predict(img)
         pred=res[0].probs.top1
-        for ind in pred:
-            st.write(res[0].names[ind])
+        st.write(res[0].names[pred])
     
     
 
