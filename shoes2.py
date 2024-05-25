@@ -74,7 +74,7 @@ def switch_page(page):
 if st.session_state.page == 'Home':
     with cols[1]:  
         st.markdown("""
-               <h1 style="font-family: Agency FB; font-size:50px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
+               <h1 style="font-family: Agency FB; font-size:40px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
     with container1:
         for brand in  shoes.keys():
             if st.button(brand,type="primary", key=brand, on_click=switch_page, args=(brand,),use_container_width=True):
@@ -95,7 +95,7 @@ else:
         st.image(sneaker['url'], use_column_width=True)
 
 with tab2:
-    st.markdown("""<h1 style="font-family: Agency FB; font-size:50px; text-align:center">Get to Know your shoes</h1>""",unsafe_allow_html=True)
+    st.markdown("""<h1 style="font-family: Agency FB; font-size:40px; text-align:center">Get to Know your shoes</h1>""",unsafe_allow_html=True)
     @st.cache_resource
     def load_model():
         mod=YOLO("best1.pt")
