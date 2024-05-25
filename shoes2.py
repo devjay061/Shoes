@@ -60,11 +60,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-
+tab1,tab2 =st.tabs(["Home","Prediction"])
 with tab1:
     if 'page' not in st.session_state:
          st.session_state.page = 'Home'
-    tab1,tab2 =st.tabs(["Home","Prediction"])
+    
     cols=st.columns([0.1,0.8,0.1,])
     container1=st.container()
     
