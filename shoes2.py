@@ -61,24 +61,24 @@ st.markdown(
 )
 
 
-
-if 'page' not in st.session_state:
-    st.session_state.page = 'Home'
-tab1,tab2 =st.tabs(["Home","Prediction"])
-cols=st.columns([0.1,0.8,0.1,])
-container1=st.container()
-
-def switch_page(page):
-    st.session_state.page = page
-
-if st.session_state.page == 'Home':
-    with cols[1]:  
-        st.markdown("""
-               <h1 style="font-family: Agency FB; font-size:40px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
-    with container1:
-        for brand in  shoes.keys():
-            if st.button(brand,type="primary", key=brand, on_click=switch_page, args=(brand,),use_container_width=True):
-              pass
+with tab1:
+    if 'page' not in st.session_state:
+         st.session_state.page = 'Home'
+    tab1,tab2 =st.tabs(["Home","Prediction"])
+    cols=st.columns([0.1,0.8,0.1,])
+    container1=st.container()
+    
+    def switch_page(page):
+        st.session_state.page = page
+    
+    if st.session_state.page == 'Home':
+        with cols[1]:  
+            st.markdown("""
+                   <h1 style="font-family: Agency FB; font-size:40px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
+        with container1:
+            for brand in  shoes.keys():
+                if st.button(brand,type="primary", key=brand, on_click=switch_page, args=(brand,),use_container_width=True):
+                  pass
 
     
    
