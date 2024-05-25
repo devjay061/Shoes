@@ -98,7 +98,7 @@ with tab2:
     st.title("Get to Know your shoes")
     @st.cache_resource
     def load_model():
-        mod=YOLO(r"C:\Users\jayje\OneDrive\Documents\HTML\FINALTHINGS\best1.pt")
+        mod=YOLO("best1.pt")
         return mod
     img=st.file_uploader("Upload The Image of Your Shoes",type=["jpg","png","jpeg"])
     if img is not None:
