@@ -59,43 +59,46 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+
+
+if 'page' not in st.session_state:
+    st.session_state.page = 'Home'
 tab1,tab2 =st.tabs(["Home","Prediction"])
 cols=st.columns([0.1,0.8,0.1,])
 container1=st.container()
 
 def switch_page(page):
-        st.session_state.page = page
-with tab1:
-    if 'page' not in st.session_state:
-        st.session_state.page = 'Home'
-    
-       
+    st.session_state.page = page
 
-        if st.session_state.page == 'Home':
-            with cols[1]:  
-                st.markdown("""
-                  <h1 style="font-family: Agency FB; font-size:50px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
-        with container1:
-           for brand in  shoes.keys():
-                    if st.button(brand,type="primary", key=brand, on_click=switch_page, args=(brand,),use_container_width=True):
-                        pass
-    
-    else:
-        precition=st.session_state.page
-        brand = st.session_state.page
-        if st.button("Home",type="primary", on_click=switch_page, args=('Home',)):
-           pass
+if st.session_state.page == 'Home':
+    with cols[1]:  
+        st.markdown("""
+               <h1 style="font-family: Agency FB; font-size:50px; text-align:center">Which do you prefer?</h1> """, unsafe_allow_html=True)
+    with container1:
+        for brand in  shoes.keys():
+            if st.button(brand,type="primary", key=brand, on_click=switch_page, args=(brand,),use_container_width=True):
+              pass
 
-        st.header(f"{brand} Sneakers")
-        for sneaker in shoes[brand]:
-         st.markdown(sneaker['name'])
+    
+   
+
+else:
+    precition=st.session_state.page
+    brand = st.session_state.page
+    if st.button("Home",type="primary", on_click=switch_page, args=('Home',)):
+         pass
+
+    st.header(f"{brand} Sneakers")
+    for sneaker in shoes[brand]:
+        st.markdown(sneaker['name'])
         st.image(sneaker['url'], use_column_width=True)
 
 with tab2:
-    st.markdown("""<h1 style="font-family: Agency FB; font-size:50px; text-align:center">Get to Know your shoes</h1>""", unsafe_allow_html=True)
+    st.title("Get to Know your shoes")
     @st.cache_resource
     def load_model():
-        mod=YOLO("best1.pt")
+        mod=YOLO(r"C:\Users\jayje\OneDrive\Documents\HTML\FINALTHINGS\best1.pt")
         return mod
     img=st.file_uploader("Upload The Image of Your Shoes",type=["jpg","png","jpeg"])
     if img is not None:
@@ -106,7 +109,6 @@ with tab2:
         pred=res[0].probs.top1
         for ind in pred:
             st.write(res[0].names[ind])
-    
     
     
 
