@@ -60,7 +60,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-tab1,tab2 =st.tabs(["Home","Prediction"])
+tab1,tab2 =st.tabs(["Home","Get to Know Your Shoes"])
 with tab1:
     if 'page' not in st.session_state:
          st.session_state.page = 'Home'
